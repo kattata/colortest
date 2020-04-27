@@ -13,6 +13,15 @@ const colorBoxes = document.getElementsByClassName('color');
 
 const summerBox = document.getElementsByClassName('summer-box')[0];
 const summerImage = document.getElementsByClassName('summer-box')[0].getElementsByTagName('img')[0];
+const summerText = document.getElementById('section3').getElementsByTagName('p')[0];
+
+const seasonBoxes = document.getElementsByClassName('season');
+const seasonImages = document.getElementsByClassName('season-img');
+const seasonTexts = document.getElementById('section3').getElementsByTagName('p');
+
+const colorsUl = document.getElementById('colors-list');
+const colorsDiv = document.getElementById('colors-added');
+const colorOkBtn = document.getElementById('ok-btn');
 
 //EVENT LISTENERS
 
@@ -33,6 +42,9 @@ colorBoxes[7].addEventListener('click', markAsChecked8);
 
 summerBox.addEventListener('mouseover', hoverSeasonsIn);
 summerBox.addEventListener('mouseleave', hoverSeasonsOut);
+
+colorOkBtn.addEventListener('click', addToList);
+
 
 //FUNCTIONS
 
@@ -62,18 +74,53 @@ function showAnger() {
 
 }
 
+
+
 function hoverSeasonsIn() {
     summerImage.style.opacity = "0";
-    const summerTextP = document.createElement('p');
-    summerTextP.textContent = "Summer";
-    summerTextP.appendChild(summerBox);
-}
+    summerText.style.opacity = "1";
+    };
 
-function hoverSeasonsOut() {
+
+function hoverSeasonsOut () {
     summerImage.style.opacity = "1";
+    summerText.style.opacity = "0";
+};
+
+
+function addToList(event) {
+    event.preventDefault();
+
+    //create colors-items div
+    const list = document.createElement('div');
+    list.classList.add('colors-items');
+
+    //create colors-item li
+    const listItem = document.createElement('li');
+    listItem.classList.add('colors-item');
+    list.appendChild(listItem);
+
+    //create trash-btn button
+    const trashBtn = document.createElement('button');
+    trashBtn.innerHTML = '<img src="media/bin.svg></img>"';
+    trashBtn.classList.add('trash-btn');
+    list.appendChild(trashBtn);
+
+    //appennd to ul
+    colorsDiv.appendChild(list);
+
+    //clear input after submitting
+
+
 }
 
 
+//add delay to mouse out
+//
+//function hoverSeasonsOut() {
+//    summerImage.style.opacity = "1";
+//    summerText.style.opacity = "0";
+//}
 
 function markAsChecked1(e) {
 
