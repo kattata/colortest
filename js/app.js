@@ -11,13 +11,19 @@ const nextButton3 = document.getElementsByClassName('next-btn')[2];
 
 const colorBoxes = document.getElementsByClassName('color');
 
-const summerBox = document.getElementsByClassName('summer-box')[0];
 const summerImage = document.getElementsByClassName('summer-box')[0].getElementsByTagName('img')[0];
 const summerText = document.getElementById('section3').getElementsByTagName('p')[0];
 
+const fallImage = document.getElementsByClassName('fall-box')[0].getElementsByTagName('img')[0];
+const fallText = document.getElementById('section3').getElementsByTagName('p')[1];
+
+const winterImage = document.getElementsByClassName('winter-box')[0].getElementsByTagName('img')[0];
+const winterText = document.getElementById('section3').getElementsByTagName('p')[2];
+
+const springImage = document.getElementsByClassName('spring-box')[0].getElementsByTagName('img')[0];
+const springText = document.getElementById('section3').getElementsByTagName('p')[3];
+
 const seasonBoxes = document.getElementsByClassName('season');
-const seasonImages = document.getElementsByClassName('season-img');
-const seasonTexts = document.getElementById('section3').getElementsByTagName('p');
 
 const colorsUl = document.getElementById('colors-list');
 const colorsDiv = document.getElementById('colors-added');
@@ -40,8 +46,8 @@ colorBoxes[5].addEventListener('click', markAsChecked6);
 colorBoxes[6].addEventListener('click', markAsChecked7);
 colorBoxes[7].addEventListener('click', markAsChecked8);
 
-summerBox.addEventListener('mouseover', hoverSeasonsIn);
-summerBox.addEventListener('mouseleave', hoverSeasonsOut);
+//summerBox.addEventListener('mouseover', hoverSeasonsIn);
+//summerBox.addEventListener('mouseleave', hoverSeasonsOut);
 
 colorOkBtn.addEventListener('click', addToList);
 
@@ -76,16 +82,31 @@ function showAnger() {
 
 
 
-function hoverSeasonsIn() {
-    summerImage.style.opacity = "0";
-    summerText.style.opacity = "1";
-    };
+//function hoverSeasonsIn() {
+//    summerImage.style.opacity = "0";
+//    summerText.style.opacity = "1";
+//    };
 
 
-function hoverSeasonsOut () {
-    summerImage.style.opacity = "1";
-    summerText.style.opacity = "0";
-};
+//function hoverSeasonsOut () {
+//    summerImage.style.opacity = "1";
+//    summerText.style.opacity = "0";
+//};
+
+function hoverSeasonsIn(image, name) {
+for (i = 0; i < seasonBoxes.length; i++) {
+   image.style.opacity = "0";
+    name.style.opacity = "1";
+    }
+}
+
+function hoverSeasonsOut(image, name) {
+for (i = 0; i < seasonBoxes.length; i++) {
+   image.style.opacity = "1";
+    name.style.opacity = "0";
+    }
+}
+
 
 
 function addToList(event) {
@@ -114,13 +135,6 @@ function addToList(event) {
 
 }
 
-
-//add delay to mouse out
-//
-//function hoverSeasonsOut() {
-//    summerImage.style.opacity = "1";
-//    summerText.style.opacity = "0";
-//}
 
 function markAsChecked1(e) {
 
