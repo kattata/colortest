@@ -28,6 +28,7 @@ const seasonBoxes = document.getElementsByClassName('season');
 const colorsUl = document.getElementById('colors-list');
 const colorsDiv = document.getElementById('colors-added');
 const colorOkBtn = document.getElementById('ok-btn');
+const colorsInput = document.getElementById('input');
 
 //EVENT LISTENERS
 
@@ -37,17 +38,11 @@ nextButton2.addEventListener('click', showSeasons);
 nextButton3.addEventListener('click', showAnger);
 
 
-colorBoxes[0].addEventListener('click', markAsChecked1);
-colorBoxes[1].addEventListener('click', markAsChecked2);
-colorBoxes[2].addEventListener('click', markAsChecked3);
-colorBoxes[3].addEventListener('click', markAsChecked4);
-colorBoxes[4].addEventListener('click', markAsChecked5);
-colorBoxes[5].addEventListener('click', markAsChecked6);
-colorBoxes[6].addEventListener('click', markAsChecked7);
-colorBoxes[7].addEventListener('click', markAsChecked8);
+//make this loop work bitch
+//for (i = 0; i < seasonBoxes.length; i++) {
+//    seasonBoxes[i].addEventListener('click', marker(this));
+//}
 
-//summerBox.addEventListener('mouseover', hoverSeasonsIn);
-//summerBox.addEventListener('mouseleave', hoverSeasonsOut);
 
 colorOkBtn.addEventListener('click', addToList);
 
@@ -81,29 +76,18 @@ function showAnger() {
 }
 
 
-
-//function hoverSeasonsIn() {
-//    summerImage.style.opacity = "0";
-//    summerText.style.opacity = "1";
-//    };
-
-
-//function hoverSeasonsOut () {
-//    summerImage.style.opacity = "1";
-//    summerText.style.opacity = "0";
-//};
-
 function hoverSeasonsIn(image, name) {
-for (i = 0; i < seasonBoxes.length; i++) {
-   image.style.opacity = "0";
-    name.style.opacity = "1";
+    for (i = 0; i < seasonBoxes.length; i++) {
+        image.style.opacity = "0";
+        name.style.opacity = "1";
+
     }
 }
 
 function hoverSeasonsOut(image, name) {
-for (i = 0; i < seasonBoxes.length; i++) {
-   image.style.opacity = "1";
-    name.style.opacity = "0";
+    for (i = 0; i < seasonBoxes.length; i++) {
+        image.style.opacity = "1";
+        name.style.opacity = "0";
     }
 }
 
@@ -131,86 +115,9 @@ function addToList(event) {
     colorsDiv.appendChild(list);
 
     //clear input after submitting
-
-
+    colorsInput.value = "";
 }
 
-
-function markAsChecked1(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[0].classList.toggle('color-checked');
-    }
-
+function marker(box) {
+    box.classList.toggle('color-checked');
 }
-    function markAsChecked2(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[1].classList.toggle('color-checked');
-    }
-
-}
-    function markAsChecked3(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[2].classList.toggle('color-checked');
-    }
-
-}
-    function markAsChecked4(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[3].classList.toggle('color-checked');
-    }
-
-}    function markAsChecked5(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[4].classList.toggle('color-checked');
-    }
-
-}    function markAsChecked6(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[5].classList.toggle('color-checked');
-    }
-
-}    function markAsChecked7(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[6].classList.toggle('color-checked');
-    }
-
-}
-      function markAsChecked8(e) {
-
-    const item = e.target;
-
-    if (item.classList[0] === 'color') {
-
-            colorBoxes[7].classList.toggle('color-checked');
-    }
-
-}
-
