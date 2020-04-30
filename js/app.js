@@ -30,6 +30,8 @@ const colorsDiv = document.getElementById('colors-added');
 const colorOkBtn = document.getElementById('ok-btn');
 const colorsInput = document.getElementById('input');
 
+const trashBtn = document.getElementsByClassName('trash-btn');
+
 //EVENT LISTENERS
 
 
@@ -45,6 +47,8 @@ nextButton3.addEventListener('click', showAnger);
 
 
 colorOkBtn.addEventListener('click', addToList);
+
+colorsUl.addEventListener('click', deleteListItem);
 
 
 //FUNCTIONS
@@ -107,7 +111,10 @@ function addToList(event) {
 
     //create trash-btn button
     const trashBtn = document.createElement('button');
-    trashBtn.innerHTML = '<img src="media/bin.svg></img>"';
+    const trashImg = document.createElement('img');
+    trashImg.classList.add('height');
+    trashImg.src = 'media/bin.svg';
+    trashBtn.appendChild(trashImg);
     trashBtn.classList.add('trash-btn');
     list.appendChild(trashBtn);
 
@@ -117,6 +124,21 @@ function addToList(event) {
     //clear input after submitting
     colorsInput.value = "";
 }
+
+function deleteListItem(e) {
+    const item = e.target;
+
+    if (item.classList[0] === "trash-btn") {
+        const iconParent = item.parentElement;
+        iconParent.remove();
+        console.log('heh');
+    }
+}
+
+
+
+
+
 
 function marker(box) {
     box.classList.toggle('color-checked');

@@ -230,37 +230,59 @@ section p {
     border: none;
     height: 40px;
     width: 90%;
-    position: relative;
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
 }
 
 #ok-btn {
-    background: none;
+    background: white;
+    padding: 5px;
     border: none;
     font-family: 'Manrope', sans-serif;
-    position: absolute;
-    right: 15%;
-    top: 53%;
-    font-size: 20px;
+    font-size: 17px;
     cursor: pointer;
+    border-left: 1px solid #d9d9d9;
+
 }
 
 #section4 .next-btn {
     margin-top: 20px;
 }
 
-.colors-item {
-    width: 200px;
-    background: white;
-    color: black;
-    text-decoration: none;
+.input-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
 
+.colors-item {
+    flex: 1;
+    color: black;
+    list-style: none;
+
+}
+
+#colors-added {
+    width: 200px;
 }
 
 .colors-items {
     display: flex;
+    width: 100%;
+    background: white;
+    padding: 5px 0;
+    margin: 15px 0;
 }
 
 .trash-btn {
     width: 20px;
-    background: none
+    background: none;
+    border: none;
+    height: 22px;
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+.height {
+    height: 22px;
 }
