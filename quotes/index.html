@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Random Quote Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="random-quote-bg">
+            <h2 class="random-quote">To be or not to be?</h2>
+            <button class="random-quote-btn">Generate a quote</button>
+        </div>
+        <div class="config">
+
+
+            <h3 class="style-quote">And style it!</h3>
+            <div class="controls">
+                <label for="size">Size:</label>
+                <input id="size" type="range" name="size" min="20" max="40" value="25" data-sizing="px">
+
+                <label for="weight">Weight:</label>
+                <input id="weight" type="range" name="weight" min="100" max="800" value="100">
+
+                <label for="color" class="label-color">Color:</label>
+                <input id="color" type="color" name="color" value="#DD7474">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const inputs = document.querySelectorAll(".controls input");
+
+        function handleUpdate() {
+            const suffix = this.dataset.sizing || "";
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+        }
+
+        inputs.forEach(input => input.addEventListener('change', handleUpdate));
+        inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+        // GENERATE QUOTE
+        const quoteBtn = document.querySelector('.random-quote-btn');
+        const quoteText = document.querySelector('.random-quote');
+        let quotes = ["I think therefore I am", "No man's knowledge here can go beyond his experience",
+            "Man is condemned to be free", "To be or not to be?",
+            "The only thing I know is that I know nothing",
+            "I can control my passions and emotions if I can understand their nature",
+            "Everything that exists is born for no reason, carries on living through weakness, and dies by accident"];
+
+        const getRandomName = () =>
+            `${quotes[Math.floor(Math.random() * quotes.length)]}`;
+
+        function changeQuote() {
+            quoteText.innerText = getRandomName();
+        }
+
+
+        quoteBtn.addEventListener('click', changeQuote);
+
+
+
+    </script>
+
+</body>
+
+</html>
