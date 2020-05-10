@@ -52,7 +52,7 @@ nextButton1.addEventListener("click", showColors);
 nextButton2.addEventListener("click", showSeasons);
 nextButton3.addEventListener("click", showAnger);
 
-colorOkBtn.addEventListener("click", addToList);
+colorOkBtn.addEventListener("click", submitOrNot);
 
 colorsDiv.addEventListener("click", deleteItem);
 
@@ -94,7 +94,7 @@ function hoverSeasonsOut(image, name) {
 }
 
 function addToList(event) {
-  event.preventDefault();
+  //   event.preventDefault();
 
   //create colors-items div
   const list = document.createElement("div");
@@ -102,6 +102,7 @@ function addToList(event) {
 
   //create colors-item li
   const listItem = document.createElement("li");
+  listItem.innerText = colorsInput.value;
   listItem.classList.add("colors-item");
   list.appendChild(listItem);
 
@@ -124,10 +125,24 @@ function deleteItem(e) {
   if (item.classList[0] === "trash-btn") {
     const iconParent = item.parentElement;
     iconParent.remove();
-    console.log("heh");
+    countSubmits -= 1;
   }
 }
 
 function marker(box) {
   box.classList.toggle("color-checked");
+}
+let countSubmits = 0;
+
+colorOkBtn.addEventListener("click", () => {
+  countSubmits += 1;
+  console.log(countSubmits);
+});
+
+function submitOrNot() {
+  if (countSubmits > 2) {
+    return;
+  } else {
+    addToList();
+  }
 }

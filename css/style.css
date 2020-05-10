@@ -242,9 +242,14 @@ section p {
   width: 90%;
 }
 
+#input {
+  padding-left: 10px;
+}
+
 .colors-item {
   flex: 1;
   color: black;
+  font-size: 17px;
   list-style: none;
   transition: all 0.3s ease;
 }
@@ -259,6 +264,7 @@ section p {
   background: white;
   padding: 5px 0;
   margin: 15px 0;
+  color: black;
 }
 
 .trash-btn {
